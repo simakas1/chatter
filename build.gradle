@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id 'java'
+	id 'groovy'
+}
+
+group = 'lt.vaskevicius'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//spring
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	//database
+	runtimeOnly 'com.h2database:h2'
+
+	//security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	//test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+
+	//etc
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.4'
+}
+
+test {
+	useJUnitPlatform()
+}
